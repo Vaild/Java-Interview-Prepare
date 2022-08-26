@@ -46,7 +46,7 @@
 
 
 
-#### TCP和UDP之间的异同
+#### ![](https://img.shields.io/badge/Java-Network-brightgreen)TCP和UDP之间的异同
 
 - 是否面向连接：UDP在传输数据之前是不需要建立连接的；TCP是面向连接的，在数据传输之前需要先建立连接，等数据传输完成之后再关闭连接
 - 是否是可靠传输：UDP是不可靠传输的，不管收到与否都不给出任何的确认，不保证数据不丢失，不保证能顺利到达；TCP是可靠传输的，再数据传递之前先建立三次握手建立连接，通过滑动窗口，确认、重传、拥塞控制机制，来保证数据可以无差错、不丢失、不重复、按序送到。
@@ -54,7 +54,7 @@
 - 传输效率：因为它不需要保证数据可靠送达，所以他的效率要比TCP高很多。主要用于一些实时性要求比较高的场景，比如直播。
 - 能否提供广播：UDP支持广播，比如直播，但是TCP是不支持广播的。
 
-#### TCP的三次握手和四次挥手
+#### ![](https://img.shields.io/badge/Java-Network-brightgreen)TCP的三次握手和四次挥手
 
 ##### 三次握手
 
@@ -107,7 +107,7 @@
 
 
 
-#### 如何提高MySQL的查询效率
+#### ![](https://img.shields.io/badge/Java-MySQL-brightgreen)如何提高MySQL的查询效率
 
 - 避免全表查询，对where、order by涉及的列建立索引
 
@@ -117,7 +117,7 @@
 
   
 
-#### Lambda表达式的优缺点
+#### ![](https://img.shields.io/badge/Java-Basic-brightgreen)Lambda表达式的优缺点
 
 - 优点：
   - 代码更加简洁，减少内部类的使用
@@ -127,14 +127,14 @@
 
 
 
-#### MyBatis中的$和#有什么区别？
+#### ![](https://img.shields.io/badge/Java-MyBatis-brightgreen)MyBatis中的$和#有什么区别？
 
 - 首先这两个都是MyBatis中进行拼接数据的符号
 
 - #使用了`PreparedStatement`进行了预编译，使用? 代替，按序给 sql 的? 号占位符设置参数值，可以有效的防止sql注入。
 - 但是$符号是直接使用字符串拼接，可能会导致sql注入的问题
 
-#### MyBatis缓存机制
+#### ![](https://img.shields.io/badge/Java-MyBatis-brightgreen)MyBatis缓存机制
 
 - MyBatis中包含了查询缓存机制，用于提高查询效率， 包括了一级缓存和二级缓存
 - 默认情况下只有一级缓存，也就是sqlSession级别的缓存开启
@@ -152,7 +152,7 @@
 
 
 
-#### 抽象类和接口他们之间的区别
+#### ![](https://img.shields.io/badge/Java-Basic-brightgreen)抽象类和接口他们之间的区别
 
 **共同点：**
 
@@ -176,14 +176,14 @@
 - 深拷贝：在堆上创建一个对象，对象中所有的变量都是重新分配新的地址，像是一种递归进去的浅拷贝。
 - 引用拷贝：不同的引用指向同一个对象 
 
-#### Java中有哪些容器
+#### ![](https://img.shields.io/badge/Java-Basic-brightgreen)Java中有哪些容器
 
 - 主要有List、Map、Set
 - List： ArrayList、LinkedList、Vector
 - Map：HashMap、HashTable、LinkedHashMap、TreeMap
 - Set：HashSet、TreeSet
 
-#### List和Map的底层是如何实现的？
+#### ![](https://img.shields.io/badge/Java-Basic-brightgreen)List和Map的底层是如何实现的？
 
 - List
   - ArrayList：Object[]
@@ -198,7 +198,7 @@
 
 
 
-#### 实现多线程的方法有哪几种
+#### ![](https://img.shields.io/badge/Java-Basic-brightgreen)实现多线程的方法有哪几种
 
 - 继承Thread类，重写run()方法
 - 实现Runnable接口，实现run()方法，不能返回值
@@ -206,7 +206,7 @@
 
 
 
-#### 创建线程池的方式有几种
+#### ![](https://img.shields.io/badge/Java-Basic-brightgreen)创建线程池的方式有几种
 
 - 通过Executors工厂方法创建
   - 包含五种工厂
@@ -214,7 +214,7 @@
 
 
 
-#### 线程池的优点
+#### ![](https://img.shields.io/badge/Java-Basic-brightgreen)线程池的优点
 
 - 线程池是管理线程的一个容器
 - 提升线程的的使用率，因为减少了创建和销毁的过程
@@ -222,7 +222,9 @@
 
 
 
-#### JVM的GC机制
+
+
+#### ![](https://img.shields.io/badge/Java-JVM-brightgreen)JVM的GC机制
 
 ​	讲到GC肯定就要讲到JVM的内存结构，包含了堆空间、方法区以及线程隔离的虚拟机栈、本地方法栈、程序计数器，而GC发生最频繁的地方是在堆空间中。我们对于GC的了解无非就是他在什么时候、在什么地方、对谁、做了什么事情。
 
@@ -313,3 +315,10 @@ select * from table where id > 10 limit 10;
 
 - 存在一个sqlSession的工厂类，用来获取session
 
+
+
+
+
+### 参考文章:
+
+[1]. [JavaGuide](javaguide.cn)
