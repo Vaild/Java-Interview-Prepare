@@ -1,16 +1,25 @@
-#### <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" />  介绍一下你的项目
+####  <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" />  介绍一下你的项目
 
 &emsp; 我的项目是一个在线音乐服务平台，只不过是在内网内部服务，这个项目包括音乐、用户认证、webSocket聊天模块，在音乐相关的模块中包含了歌曲上传、下载、歌单创建、收藏、点赞、评论等功能。
 
 
 
-#### <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" />  讲一下你项目的技术栈
+####  <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" />  讲一下你项目的技术栈
 
 &emsp;我的项目是通过SpringBoot进行构建的，在数据端使用MySQL进行数据存取，另外在用户认证方面使用的JWToken的认证方式，采用这种方式有一个缺点是一旦Token生成他的过期时间就是一个确定的值，这会给我们的退出造成一定的困扰，所以使用Redis在服务器端保存Token及对应的用户信息，退出的时候直接从redis中删除。
 
 
 
-#### <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" />  简单介绍一下webSocket协议
+####  <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" /> 讲一下你项目的登录模块吧
+
+- 首先，登录的功能是通过JWT实现的，也就是Json Web Token，它本质上是一个Token，我们把前端的Username、password给到后端之后，服务器通过这个获取到用户信息、权限信息，生成token返回到前端，存储在local storage当中，之后每次访问都会携带。
+- 登录使用的拦截器的形式，定义一个HandlerInterceptor、通过webconfig配置到springboot中，同时我们还会验证当前请求的uri需要什么权限和当前用户权限本身作比较，如果符合就放行，不符合就不通过。
+
+
+
+
+
+####  <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" />  简单介绍一下webSocket协议
 
 - 首先，websocket也是一种通信协议
 - 在了解websocket之前，我们先了解一下在websocket使用之前，我们是怎么从服务器端获取消息的
@@ -23,7 +32,7 @@
 
 
 
-#### <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" />  简单介绍一下ThreadLocal的应用
+####  <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" />  简单介绍一下ThreadLocal的应用
 
 &emsp;在我这个项目中，主要使用ThreadLocal做线程隔离，同时也能保证在本线程内的局部变量不再需要需要每次都要进行解析。
 
@@ -71,7 +80,7 @@
 
 
 
-#### <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" />  权限认证是如何实现的
+####  <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" />  权限认证是如何实现的
 
 - 主要通过RBAC的模型实现的权限认证，大概是这样
   - 我给每个用户都分配一个或多个角色
@@ -84,7 +93,7 @@
 
 
 
-#### <img src="https://img.shields.io/badge/Network-brightgreen" style="zoom:80%;" />  TCP和UDP之间的异同
+####  <img src="https://img.shields.io/badge/Network-brightgreen" style="zoom:80%;" />  TCP和UDP之间的异同
 
 - 是否面向连接：UDP在传输数据之前是不需要建立连接的；TCP是面向连接的，在数据传输之前需要先建立连接，等数据传输完成之后再关闭连接
 - 是否是可靠传输：UDP是不可靠传输的，不管收到与否都不给出任何的确认，不保证数据不丢失，不保证能顺利到达；TCP是可靠传输的，再数据传递之前先建立三次握手建立连接，通过滑动窗口，确认、重传、拥塞控制机制，来保证数据可以无差错、不丢失、不重复、按序送到。
@@ -92,7 +101,7 @@
 - 传输效率：因为它不需要保证数据可靠送达，所以他的效率要比TCP高很多。主要用于一些实时性要求比较高的场景，比如直播。
 - 能否提供广播：UDP支持广播，比如直播，但是TCP是不支持广播的。
 
-#### <img src="https://img.shields.io/badge/Network-brightgreen" style="zoom:80%;" />  TCP的三次握手和四次挥手
+####  <img src="https://img.shields.io/badge/Network-brightgreen" style="zoom:80%;" />  TCP的三次握手和四次挥手
 
 ##### 三次握手
 
@@ -143,7 +152,7 @@
 
 
 
-#### <img src="https://img.shields.io/badge/MySQL-brightgreen" style="zoom:80%;" />  如何提高MySQL的查询效率
+####  <img src="https://img.shields.io/badge/MySQL-brightgreen" style="zoom:80%;" />  如何提高MySQL的查询效率
 
 - 避免全表查询，对where、order by涉及的列建立索引
 
@@ -153,7 +162,7 @@
 
   
 
-#### <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  Lambda表达式的优缺点
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  Lambda表达式的优缺点
 
 - 优点：
   - 代码更加简洁，减少内部类的使用
@@ -163,14 +172,14 @@
 
 
 
-#### <img src="https://img.shields.io/badge/MyBatis-brightgreen" style="zoom:80%;" />  MyBatis中的$和#有什么区别？
+####  <img src="https://img.shields.io/badge/MyBatis-brightgreen" style="zoom:80%;" />  MyBatis中的$和#有什么区别？
 
 - 首先这两个都是MyBatis中进行拼接数据的符号
 
 - #使用了`PreparedStatement`进行了预编译，使用? 代替，按序给 sql 的? 号占位符设置参数值，可以有效的防止sql注入。
 - 但是$符号是直接使用字符串拼接，可能会导致sql注入的问题
 
-#### <img src="https://img.shields.io/badge/MyBatis-brightgreen" style="zoom:80%;" />  MyBatis缓存机制
+####  <img src="https://img.shields.io/badge/MyBatis-brightgreen" style="zoom:80%;" />  MyBatis缓存机制
 
 - MyBatis中包含了查询缓存机制，用于提高查询效率， 包括了一级缓存和二级缓存
 - 默认情况下只有一级缓存，也就是sqlSession级别的缓存开启
@@ -188,7 +197,7 @@
 
 
 
-#### <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  抽象类和接口他们之间的区别
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  抽象类和接口他们之间的区别
 
 **共同点：**
 
@@ -204,22 +213,22 @@
 
 
 
-#### <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  深拷贝与浅拷贝
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  深拷贝与浅拷贝
 
-![](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/java/basis/shallow&deep-copy.png)
+![](https://s2.loli.net/2022/08/27/bOfK2smMd9T51DC.png)
 
 - 浅拷贝： 类似于重新在堆上创建一个对象，但是对象当中的变量如果是基本数据类型的话复制一份，如果是引用类型的话，直接复制这个对象的地址
 - 深拷贝：在堆上创建一个对象，对象中所有的变量都是重新分配新的地址，像是一种递归进去的浅拷贝。
 - 引用拷贝：不同的引用指向同一个对象 
 
-#### <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  Java中有哪些容器
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  Java中有哪些容器
 
 - 主要有List、Map、Set
 - List： ArrayList、LinkedList、Vector
 - Map：HashMap、HashTable、LinkedHashMap、TreeMap
 - Set：HashSet、TreeSet
 
-#### <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  List和Map的底层是如何实现的？
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  List和Map的底层是如何实现的？
 
 - List
   - ArrayList：Object[]
@@ -234,7 +243,7 @@
 
 
 
-#### <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  实现多线程的方法有哪几种
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  实现多线程的方法有哪几种
 
 - 继承Thread类，重写run()方法
 - 实现Runnable接口，实现run()方法，不能返回值
@@ -242,7 +251,7 @@
 
 
 
-#### <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  创建线程池的方式有几种
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  创建线程池的方式有几种
 
 - 通过Executors工厂方法创建
   - 包含五种工厂
@@ -250,7 +259,7 @@
 
 
 
-#### <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  线程池的优点
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  线程池的优点
 
 - 线程池是管理线程的一个容器
 - 提升线程的的使用率，因为减少了创建和销毁的过程
@@ -260,7 +269,7 @@
 
 
 
-#### <img src="https://img.shields.io/badge/JVM-brightgreen" style="zoom:80%;" />  JVM的GC机制
+####  <img src="https://img.shields.io/badge/JVM-brightgreen" style="zoom:80%;" />  JVM的GC机制
 
 &emsp;讲到GC肯定就要讲到JVM的内存结构，包含了堆空间、方法区以及线程隔离的虚拟机栈、本地方法栈、程序计数器，而GC发生最频繁的地方是在堆空间中。我们对于GC的了解无非就是他在什么时候、在什么地方、对谁、做了什么事情。
 
@@ -332,14 +341,45 @@
 
 ##### GC算法
 
-- 标记-清除
-- 标记-复制
-- 标记-整理
-- 分代收集算法
+- 标记-清除：这个是最早的一种垃圾回收算法，他要求将不需要回收的空间标记出来，然后将需要回收的垃圾全部回收掉
+  - 对于有很多需要回收的时候，效率很低
+  - 会产生大量的空间碎片
+- 标记-复制：对标记清除的改进，每次只使用一般的空间，对不需要清除的空间进行标记，将标记的空间按顺序复制到另外一半的空间，直接将刚才的一半空间全部回收
+- 标记-整理：一般用在老年代，对不回收的空间进行标记，将标记的空间顺序的从开始整理好，将剩余的空间全部回收掉。
+- 分代收集算法：没有新的垃圾回收算法，是针对不同的结构具有不同的特点选择合适的垃圾回收算法
+  - 在新生代中，对象的存活率不高，所以每次回收都有很多需要回收，如果使用标记清除的话，每次清除很浪费时间，所以使用标记复制的算法更好，因为存活率低所以标记复制的也比较少。
+  - 在老年代中，对象的存活率较高，每次回收的不多，所以使用标记清除或者是标记整理更好一些。
+
+##### 垃圾收集器
+
+- Serial收集器：阻塞单线程垃圾收集器，新生代使用标记复制，老年代使用标记整理算法
+
+![](https://javaguide.cn/assets/46873026.3a9311ec.png)
+
+- ParNew收集器：阻塞多线程并行垃圾收集器，新生代使用标记复制，老年代使用标记整理算法
+
+![](https://javaguide.cn/assets/22018368.df835851.png)
+
+- Parallel scavenge垃圾收集器：关注于CPU的吞吐量，关心能不能高效的利用CPU，不关心用户体验
+
+- Serial Old垃圾收集器：是Secial的老年代版本，单线程，使用标记整理算法
+
+- Parallel Old： Parallel Scavenge的老年代版本，标记整理
+
+- CMS(Concurrent Mark Sweep)：并行标记整理收集器，我们前面的垃圾回收器都会有很长时间的停顿时间，CMS是追求尽可能短的停顿时间, 主要优点是：并发收集，低停顿
+
+  - 初始标记：初始单线程阻塞标记，很快
+  - 并发标记：非阻塞标记
+  - 重新标记：阻塞多线程标记，因为程序在运行的过程中，他的可达性关系会发生变化。
+  - 并发清除：非阻塞清除
+
+  ![](https://javaguide.cn/assets/CMS%E6%94%B6%E9%9B%86%E5%99%A8.8a4d0487.png)
 
 
 
-#### <img src="https://img.shields.io/badge/JVM-brightgreen" style="zoom:80%;" />  如何判断一个无用的类？
+
+
+####  <img src="https://img.shields.io/badge/JVM-brightgreen" style="zoom:80%;" />  如何判断一个无用的类？
 
 - 该类的所有的实例已经被回收了
 - ClassLoader已经被回收了
@@ -349,19 +389,139 @@
 
 
 
-#### <img src="https://img.shields.io/badge/JVM-brightgreen" style="zoom:80%;" />  如何判断一个常量是不是已经废弃？
+####  <img src="https://img.shields.io/badge/JVM-brightgreen" style="zoom:80%;" />  如何判断一个常量是不是已经废弃？
 
 &emsp;如果没有任何的对象引用的话，则说明这个常量已经被废弃了，可以直接被回收。
 
-#### <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  包装类型的缓存机制了解么？
+
+
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />基本数据类型和包装类有什么不同？
+
+- 基本数据类型如果不被static修饰放在虚拟机栈中，但是包装类是放在堆空间中
+- 基本数据类型不能用于泛型，包装类可以用于泛型
+- 包装类会有初始值null，但是基本数据类型的默认值不是null
+
+
+
+####   <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  包装类型的缓存机制了解么？
+
+在Java中的包装类一般使用缓存机制来提高性能，那么什么是缓存机制呢？Byte、Short、Long、Integer，直接创建数组[-128, 127]缓存数据，Boolean直接返回True、False
+
+```
+Integer i1 = 40; Integer i2 = new Integer(40); System.out.println(i1==i2);
+```
+
+> `Integer i1=40` 这一行代码会发生装箱，也就是说这行代码等价于 `Integer i1=Integer.valueOf(40)` 。因此，`i1` 直接使用的是缓存中的对象。而`Integer i2 = new Integer(40)` 会直接创建新的对象。
+
+所以所有整型包装类的对象使用equals进行比较。
+
+
+
+   
+
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  BigDecimal可以防止浮点精度不足。
+
+- 小数点的位置
+- 整体的精度，也就是位数
+- 如果是去掉小数点在int类型的范围，可以用int返回
+- 否则用BigInteger
+
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  ArrayList扩容机制
+
+- 如果创建一个ArrayList，不会直接分配空间
+- 当添加第一个add的时候，才会默认分配一个大小为10的数组
+- 等再添加11个元素的时候，再次对数组进行扩容，扩容为原来的1.5倍，
+- 是通过将创建一个新的1.5倍的数组，然后将原来的数组复制过去。
+
+
+
+####   <img src="https://img.shields.io/badge/JVM-brightgreen" style="zoom:80%;" />  双亲委派机制
+
+##### 什么是双亲委派机制
+
+我们知道JVM在加载类的时候，需要通过类加载器来进行加载，那么使用哪个类加载器来加载，就需要用到双亲委派机制，首先了解有哪些类加载器：
+
+- BootStrap ClassLoader：主要用来加载 Java home目录下lib中核心包的类
+- Extension ClassLoader：主要用来加载Java home目录下lib中ext中jar包中的类
+- Application ClassLoader：主要用来加载classPath下面的类
+- User ClassLoader：主要用来加载自定义的类加载器的类
+
+**双亲委派机制就是当我们加载一个类的时候首先交给他的父加载器中取加载，只有当父加载器加载不了当前类的时候才会使用当前的加载器来进行加载。**
+
+
+
+##### 为什么需要双亲委派机制，如果没有会怎么样？
+
+- 双亲委派可以避免重复加载，就是如果一个类已经被父加载器加载那么当前的加载器就不会再次进行加载
+- 可以防止第三方包篡改JDK本身的包，保证安全性，如果没有双亲委派机制的话，那么我们可以通过自定义核心类去加载达到村该核心类的目的，但是现在只能有BootStrap加载器进行加载。
+
+##### 双亲委派机制如何实现的
+
+- 判断当前的类是不是已经被加载了，如果被加载直接退出
+- 如果父加载器不为空的话，则向上由父加载器进行类加载；如果为空则说明当前已经是BootStrap类加载器，尝试由他进行类加载，如果加载失败抛出ClassLoaderNotFound
+- 上一步类加载完之后，Class类对象依然为空，说明没有加载，则有当前类加载器的findClass进行加载
+
+##### loadClass、find Class、defineClass的区别
+
+- loadClass是类加载，实现双亲委派的主要代码
+- findClass 是通过名称和位置来进行类加载，如果想定义一个加载器，但是不想改变双亲委派的话，可以继承classLoad然后重写findClass
+- defineClass将字节码转为Class
+
+##### 如何破坏双亲委派？
+
+修改loadClass，因为主要的双亲委派的逻辑都在这个里面。JDBC和Tomcat就是破坏了双亲委派机制
+
+##### JDBC为什么破坏双亲委派机制？
+
+- JDBC使用的是一种SPI的方式，他在获取链接的时候会通过DriverManager，会加载这个类
+
+  ````java
+  ServiceLoader<Driver> loadedDrivers = ServiceLoader.load(Driver.class);
+  ````
+
+- 然后会尝试加载所有classpath下面，实现Driver接口的的实现类
+
+- DriverManager通过根加载器加载，但是实现类需要Application进行加载不能通过根加载器进行加载，所以需要破坏
+
+- 通过ThreadContextClassLoader线程上下文类加载器，用于加载classpath下面的实现类
+
+##### Tomcat为什么破坏？
+
+- 和双亲委派机制正好相反的机制进行加载
+- tomcat是一个web容器，他很有可能运行很多个web应用，但是这些web应用的版本可能不一样但是全路径名是一样的，所以就不能重复加载
+- tomcat需要破坏双亲委派机制，提供隔离机制，为每个web应用提供一个单独的WebAppClassLoader
+- 每个类加载器，优先记载本身目录下的class文件，加载不到的时候再向上加载
+
+>  [3]. [你确定你真的理解"双亲委派"了吗？！ ](https://www.cnblogs.com/hollischuang/p/14260801.html)
+
+
+
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  AIO、NIO、BIO的区别
+
+提到上面的IO模型之前，首先是我们在用Java中的IO工具的时候完成IO操作的时候，都不是Java本身完成的，因为我们执行的时候分为用户态和内核态，当像是内存管理、文件管理、磁盘IO这种操作是内核态来完成的，所以Java只是负责给系统通知，也就是进行系统调用。
+
+在系统层面对磁盘IO也会分为三个阶段：准备数据、数据就绪、数据拷贝阶段
+
+> fd：file description 文件描述符
+
+- BIO(Blocking I/O) 同步阻塞IO：一个应用发起一个磁盘IO开始，系统进入阻塞，指导数据拷贝结束，一直处于阻塞
+
+- NIO(Non Blocking I/O)同步非阻塞：一个应用从发起磁盘IO开始，不进入阻塞而是返回error，但是他会轮询发起调用，直到他知道数据准备就绪之后，也就是在数据拷贝阶段依然会进入阻塞。
+
+- IO多路复用：对于一个IO通道，可以同时有多个系统调用，形成一个FD的数组，发起select调用，服务器端对fd数组进行遍历，然后阻塞，一旦发现当前的数据准备好了，通知客户端发起读取数据的系统调用。通过单线程遍历的方式，完成多路复用。
+- AIO(Asynchronous I/O)异步IO：就是通过回调的方式解决阻塞的问题，当用户发起IO的系统调用之后，立即给与回应，当数据准备就绪之后自动将数据拷贝出去。
 
 
 
 
 
-#### <img src="https://img.shields.io/badge/JVM-brightgreen" style="zoom:80%;" />  双亲委派机制
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  API和SPI的区别
 
 
+
+他们两个之间主要还是在话语权之间的区别，API是厂商实现一个统一的接口，然后调用方要根据厂商的API来写程序，SPI是厂商根据调用方的要求来实现接口，话语权在调用方。
+
+SPI的经典案例是JDBC
 
 ### 未完成
 
@@ -392,3 +552,5 @@ select * from table where id > 10 limit 10;
 [1]. [JavaGuide](javaguide.cn)
 
 [2]. [面试必备：ThreadLocal详解](https://juejin.cn/post/7126708538440679460)
+
+[3]. [你确定你真的理解"双亲委派"了吗？！ ](https://www.cnblogs.com/hollischuang/p/14260801.html)
