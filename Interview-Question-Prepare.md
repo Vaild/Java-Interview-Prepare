@@ -513,8 +513,6 @@ Integer i1 = 40; Integer i2 = new Integer(40); System.out.println(i1==i2);
 
 
 
-
-
 ####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  API和SPI的区别
 
 
@@ -523,27 +521,160 @@ Integer i1 = 40; Integer i2 = new Integer(40); System.out.println(i1==i2);
 
 SPI的经典案例是JDBC
 
+
+
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  排序算法及其时间复杂度
+
+- 冒泡排序：$ o(n^2) $
+- 插入排序
+- 选择排序
+- 归并排序
+- 快速排序
+- 堆排序
+
+####  <img src="https://img.shields.io/badge/Spring-brightgreen" style="zoom:80%;" />  SpringBoot自动装配流程
+
+下面有讲
+
+####  <img src="https://img.shields.io/badge/Spring-brightgreen" style="zoom:80%;" />  SpringBoot启动流程
+
+SpringBoot启动分为了两个部分，对应于main方法中的两个部分：
+
+- 实例化一个SpringApplication对象：主要是对一些监视器，环境上下文进行初始化
+
+  - servlet类型环境
+  - 通过getSpringFactoryInstances初始化META/spring.factories配置中的Initializer
+  - 初始化Listener
+
+- 通过SpringApplication执行run()方法：扫描配置，加载IoC容器，启动监听模块，创建上下文环境、自动装配以及自动注入
+
+  run方法分为好几个模块，下面分开介绍：
+
+  - ~~获取监视器、启动监视器~~
+
+  - 获取配置文件，初始化environment环境
+
+  - 初始化应用上下文，初始化IoC容器
+
+  - prepareContext方法：初始化读取bean的读取器，然后将目前有的Initializer等放进beanfactory   IoC容器中
+
+  - IoC容器的初始化，refresh()
+
+    postProcessBeanFactory()方法向上下文中添加了一系列的Bean的后置处理器。后置处理器工作的时机是在所有的beanDenifition加载完成之后，bean实例化之前执行。
+
+    **这其中还给上下文添加了环境变量、系统配置、系统环境信息**
+
+    其中最重要的就是， 调用**invokeBeanFactoryPostProcessors(beanFactory);**，也就是IoC初始化的步骤
+
+    - BeanDefinition的Resource定位
+    - BeanDefinition的载入: 定位完成之后，会将他们拼接起来形成路径，然后根据路径加载进来，之后判断是不是带有 `@Component`注解，如果有的话就是要载入的BeanDefinition
+    - 向IoC容器注册BeanDefinition：加入到一个ConcurrentHashMap中
+    - 在出口处有一个自动装配的入口：
+      - 主要对SpringBootApplication注解中的@EnableConfiguration中的@Import  AutoConfigurationImportSelector类
+      - getCandidateConfigurations他会获取META-INFO/spring.factories中所有的key为org.springframework.boot.autoconfigure.EnableAutoConfiguration的类
+      - 排除掉一些不是oncondition的之后，通过获取resources, 载入beandefinition，最后将其注册到IoC容器中
+
+
+
+对象实例化代码：
+
+````java
+public SpringApplication(ResourceLoader resourceLoader, Class<?>... primarySources) {
+    /**
+    * 这里还有一部分代码没有什么用，就删除了
+    */
+	// 推断Application的类型，这里一般是Servlet
+    this.webApplicationType = WebApplicationType.deduceFromClasspath();
+    // 加载根初始化器
+    this.bootstrapRegistryInitializers = new ArrayList(this.getSpringFactoriesInstances(BootstrapRegistryInitializer.class));
+    // 在META-INFO/spring.factories配置中找到Initializer并生成一个对象 初始化
+    this.setInitializers(this.getSpringFactoriesInstances(ApplicationContextInitializer.class));
+    // 同上，是Listener
+    this.setListeners(this.getSpringFactoriesInstances(ApplicationListener.class));
+    this.mainApplicationClass = this.deduceMainApplicationClass();
+}
+````
+
+run的源代码如下：
+
+````java
+public ConfigurableApplicationContext run(String... args) {
+    long startTime = System.nanoTime();
+    // 
+    DefaultBootstrapContext bootstrapContext = this.createBootstrapContext();
+    // spring上下文
+    ConfigurableApplicationContext context = null;
+    this.configureHeadlessProperty();
+    // 获取监听器
+    SpringApplicationRunListeners listeners = this.getRunListeners(args);
+    // 启动监视器
+    listeners.starting(bootstrapContext, this.mainApplicationClass);
+
+    try {
+        // 获取命令行的参数
+        ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);
+        // 这个是环境，根据用户配置加载环境，这个非常重要，在这里面加载了yaml文件，进行配置
+        ConfigurableEnvironment environment = this.prepareEnvironment(listeners, bootstrapContext, applicationArguments);
+        this.configureIgnoreBeanInfo(environment);
+        Banner printedBanner = this.printBanner(environment);
+        // 初始化应用上下文，同时在这里面创建了IoC容器，DefalutListableBeanFactory
+        context = this.createApplicationContext();
+        context.setApplicationStartup(this.applicationStartup);
+        // 准备上下文，执行容器中目前所有的Initializer
+        // 创建了读取bean的读取器
+        // 将命令行参数封装成单例Bean装进容器
+        // 对现在容器中的事件进行发布
+        this.prepareContext(bootstrapContext, context, environment, listeners, applicationArguments, printedBanner);
+        // 刷新上下文，最重要的IoC初始化，refresh
+        // 进行了IoC初始化，以及自动装配
+        this.refreshContext(context);
+        this.afterRefresh(context, applicationArguments);
+        Duration timeTakenToStartup = Duration.ofNanos(System.nanoTime() - startTime);
+        if (this.logStartupInfo) {
+            (new StartupInfoLogger(this.mainApplicationClass)).logStarted(this.getApplicationLog(), timeTakenToStartup);
+        }
+
+        listeners.started(context, timeTakenToStartup);
+        this.callRunners(context, applicationArguments);
+    } catch (Throwable var12) {
+        this.handleRunFailure(context, var12, listeners);
+        throw new IllegalStateException(var12);
+    }
+
+    try {
+        Duration timeTakenToReady = Duration.ofNanos(System.nanoTime() - startTime);
+        listeners.ready(context, timeTakenToReady);
+        return context;
+    } catch (Throwable var11) {
+        this.handleRunFailure(context, var11, (SpringApplicationRunListeners)null);
+        throw new IllegalStateException(var11);
+    }
+}
+````
+
+
+
+> [4]. [SpringBoot启动流程分析 1 - 5](https://www.cnblogs.com/hello-shf/p/10976646.html)
+
+
+
 ### 未完成
 
-#### mysql数据库去重
-
-#### mysql[数据](https://www.nowcoder.com/jump/super-jump/word?word=数据)库从第10个[数据](https://www.nowcoder.com/jump/super-jump/word?word=数据)往后查10个
+- [ ] mysql数据库去重
+- [ ] mysql[数据](https://www.nowcoder.com/jump/super-jump/word?word=数据)库从第10个[数据](https://www.nowcoder.com/jump/super-jump/word?word=数据)往后查10个
 
 ````sql
 select * from table where id > 10 limit 10;
 ````
 
-#### mysql事务的隔离级别
+- [ ] mysql事务的隔离级别
 
-#### Spring中的设计模式
+- [ ] Spring中的设计模式
 
-#### JDBC的存储的流程
+- [ ] JDBC的存储的流程
 
-#### MyBatis如何连接数据库
-
-- 存在一个sqlSession的工厂类，用来获取session
-
-
+- [ ] MyBatis如何连接数据库
+  - 存在一个sqlSession的工厂类，用来获取session
 
 
 
