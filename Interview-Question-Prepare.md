@@ -2,11 +2,13 @@
 
 
 
+
+
 ## Java 
 
 ### Basic
 
-####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  Lambda表达式的优缺点
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" align="left"/>  Lambda表达式的优缺点
 
 - 优点：
   - 代码更加简洁，减少内部类的使用
@@ -16,7 +18,7 @@
 
 
 
-####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  抽象类和接口他们之间的区别
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" align="left"/>  抽象类和接口他们之间的区别
 
 **共同点：**
 
@@ -32,7 +34,7 @@
 
 
 
-####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  深拷贝与浅拷贝
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" align="left"/>  深拷贝与浅拷贝
 
 ![](https://s2.loli.net/2022/08/27/bOfK2smMd9T51DC.png)
 
@@ -40,14 +42,14 @@
 - 深拷贝：在堆上创建一个对象，对象中所有的变量都是重新分配新的地址，像是一种递归进去的浅拷贝。
 - 引用拷贝：不同的引用指向同一个对象 
 
-####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  Java中有哪些容器
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" align="left"/>  Java中有哪些容器
 
 - 主要有List、Map、Set
 - List： ArrayList、LinkedList、Vector
 - Map：HashMap、HashTable、LinkedHashMap、TreeMap
 - Set：HashSet、TreeSet
 
-####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  List和Map的底层是如何实现的？
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" align="left"/>  List和Map的底层是如何实现的？
 
 - List
   - ArrayList：Object[]
@@ -62,7 +64,7 @@
 
 
 
-####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  实现多线程的方法有哪几种
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" align="left"/>  实现多线程的方法有哪几种
 
 - 继承Thread类，重写run()方法
 - 实现Runnable接口，实现run()方法，不能返回值
@@ -70,7 +72,7 @@
 
 
 
-####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  创建线程池的方式有几种
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" align="left"/>  创建线程池的方式有几种
 
 - 通过Executors工厂方法创建
   - 包含五种工厂
@@ -78,13 +80,13 @@
 
 
 
-####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  线程池的优点
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" align="left"/>  线程池的优点
 
 - 线程池是管理线程的一个容器
 - 提升线程的的使用率，因为减少了创建和销毁的过程
 - 线程池的伸缩性对于性能的影响是比较大的，如果我们创建太多的线程，将会浪费很多的资源，有些线程池没有被用到，如果我们销毁的线程过多的话，一旦业务增多的话，就需要重新创建线程将导致长时间的登台，性能变差。
 
-####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />基本数据类型和包装类有什么不同？
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" align="left"/>基本数据类型和包装类有什么不同？
 
 - 基本数据类型如果不被static修饰放在虚拟机栈中，但是包装类是放在堆空间中
 - 基本数据类型不能用于泛型，包装类可以用于泛型
@@ -92,7 +94,7 @@
 
 
 
-####   <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  包装类型的缓存机制了解么？
+####   <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" align="left"/>  包装类型的缓存机制了解么？
 
 在Java中的包装类一般使用缓存机制来提高性能，那么什么是缓存机制呢？Byte、Short、Long、Integer，直接创建数组[-128, 127]缓存数据，Boolean直接返回True、False
 
@@ -106,7 +108,7 @@ Integer i1 = 40; Integer i2 = new Integer(40); System.out.println(i1==i2);
 
 
 
-####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  BigDecimal可以防止浮点精度不足。
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" align="left"/>  BigDecimal可以防止浮点精度不足。
 
 - 小数点的位置
 - 整体的精度，也就是位数
@@ -115,7 +117,7 @@ Integer i1 = 40; Integer i2 = new Integer(40); System.out.println(i1==i2);
 
 
 
-####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  ArrayList扩容机制
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" align="left"/>  ArrayList扩容机制
 
 - 如果创建一个ArrayList，不会直接分配空间
 - 当添加第一个add的时候，才会默认分配一个大小为10的数组
@@ -124,7 +126,7 @@ Integer i1 = 40; Integer i2 = new Integer(40); System.out.println(i1==i2);
 
 
 
-####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  AIO、NIO、BIO的区别
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" align="left"/>  AIO、NIO、BIO的区别
 
 提到上面的IO模型之前，首先是我们在用Java中的IO工具的时候完成IO操作的时候，都不是Java本身完成的，因为我们执行的时候分为用户态和内核态，当像是内存管理、文件管理、磁盘IO这种操作是内核态来完成的，所以Java只是负责给系统通知，也就是进行系统调用。
 
@@ -141,7 +143,7 @@ Integer i1 = 40; Integer i2 = new Integer(40); System.out.println(i1==i2);
 
 
 
-####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  API和SPI的区别
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" align="left"/>  API和SPI的区别
 
 
 
@@ -151,7 +153,7 @@ SPI的经典案例是JDBC
 
 
 
-####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  排序算法及其时间复杂度
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" align="left"/>  排序算法及其时间复杂度
 
 - 冒泡排序：$ o(n^2) $
 - 插入排序
@@ -162,7 +164,7 @@ SPI的经典案例是JDBC
 
 
 
-####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  Java中实现动态代理的两种方式，他们的原理和区别
+####  <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" align="left"/>  Java中实现动态代理的两种方式，他们的原理和区别
 
 Java实现动态代理的两种方式：JDK动态代理，CGLib动态代理
 
@@ -180,13 +182,13 @@ Java实现动态代理的两种方式：JDK动态代理，CGLib动态代理
 
 
 
-#### <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" />  谈谈对布隆过滤器的理解
+#### <img src="https://img.shields.io/badge/Basic-brightgreen" style="zoom:80%;" align="left"/>  谈谈对布隆过滤器的理解
 
 ---
 
 ### JVM
 
-####  <img src="https://img.shields.io/badge/JVM-brightgreen" style="zoom:80%;" />  JVM的GC机制
+####  <img src="https://img.shields.io/badge/JVM-brightgreen" style="zoom:80%;" align="left"/>  JVM的GC机制
 
 &emsp;讲到GC肯定就要讲到JVM的内存结构，包含了堆空间、方法区以及线程隔离的虚拟机栈、本地方法栈、程序计数器，而GC发生最频繁的地方是在堆空间中。我们对于GC的了解无非就是他在什么时候、在什么地方、对谁、做了什么事情。
 
@@ -296,7 +298,7 @@ Java实现动态代理的两种方式：JDK动态代理，CGLib动态代理
 
 
 
-####  <img src="https://img.shields.io/badge/JVM-brightgreen" style="zoom:80%;" />  如何判断一个无用的类？
+####  <img src="https://img.shields.io/badge/JVM-brightgreen" style="zoom:80%;" align="left"/>  如何判断一个无用的类？
 
 - 该类的所有的实例已经被回收了
 - ClassLoader已经被回收了
@@ -306,7 +308,7 @@ Java实现动态代理的两种方式：JDK动态代理，CGLib动态代理
 
 
 
-####  <img src="https://img.shields.io/badge/JVM-brightgreen" style="zoom:80%;" />  如何判断一个常量是不是已经废弃？
+####  <img src="https://img.shields.io/badge/JVM-brightgreen" style="zoom:80%;" align="left"/>  如何判断一个常量是不是已经废弃？
 
 &emsp;如果没有任何的对象引用的话，则说明这个常量已经被废弃了，可以直接被回收。
 
@@ -314,7 +316,7 @@ Java实现动态代理的两种方式：JDK动态代理，CGLib动态代理
 
 
 
-####   <img src="https://img.shields.io/badge/JVM-brightgreen" style="zoom:80%;" />  双亲委派机制
+####   <img src="https://img.shields.io/badge/JVM-brightgreen" style="zoom:80%;" align="left"/>  双亲委派机制
 
 ##### 什么是双亲委派机制
 
@@ -381,7 +383,7 @@ Java实现动态代理的两种方式：JDK动态代理，CGLib动态代理
 
 ### Network
 
-####  <img src="https://img.shields.io/badge/Network-brightgreen" style="zoom:80%;" />  TCP和UDP之间的异同
+####  <img src="https://img.shields.io/badge/Network-brightgreen" style="zoom:80%;" align="left"/>  TCP和UDP之间的异同
 
 - 是否面向连接：UDP在传输数据之前是不需要建立连接的；TCP是面向连接的，在数据传输之前需要先建立连接，等数据传输完成之后再关闭连接
 - 是否是可靠传输：UDP是不可靠传输的，不管收到与否都不给出任何的确认，不保证数据不丢失，不保证能顺利到达；TCP是可靠传输的，再数据传递之前先建立三次握手建立连接，通过滑动窗口，确认、重传、拥塞控制机制，来保证数据可以无差错、不丢失、不重复、按序送到。
@@ -389,7 +391,7 @@ Java实现动态代理的两种方式：JDK动态代理，CGLib动态代理
 - 传输效率：因为它不需要保证数据可靠送达，所以他的效率要比TCP高很多。主要用于一些实时性要求比较高的场景，比如直播。
 - 能否提供广播：UDP支持广播，比如直播，但是TCP是不支持广播的。
 
-####  <img src="https://img.shields.io/badge/Network-brightgreen" style="zoom:80%;" />  TCP的三次握手和四次挥手
+####  <img src="https://img.shields.io/badge/Network-brightgreen" style="zoom:80%;" align="left"/>  TCP的三次握手和四次挥手
 
 ##### 三次握手
 
@@ -440,7 +442,7 @@ Java实现动态代理的两种方式：JDK动态代理，CGLib动态代理
 
 
 
-#### <img src="https://img.shields.io/badge/Network-brightgreen" style="zoom:80%;" />  在建立TCP连接之后，客户端突然挂掉的流程
+#### <img src="https://img.shields.io/badge/Network-brightgreen" style="zoom:80%;" align="left"/>  在建立TCP连接之后，客户端突然挂掉的流程
 
 会出现两种情况：
 
@@ -458,11 +460,11 @@ Java实现动态代理的两种方式：JDK动态代理，CGLib动态代理
 
 ### Spring
 
-#### <img src="https://img.shields.io/badge/Spring-brightgreen" style="zoom:80%;" />  SpringBoot自动装配流程
+#### <img src="https://img.shields.io/badge/Spring-brightgreen" style="zoom:80%;" align="left"/>  SpringBoot自动装配流程
 
 下面有讲
 
-####  <img src="https://img.shields.io/badge/Spring-brightgreen" style="zoom:80%;" />  SpringBoot启动流程
+####  <img src="https://img.shields.io/badge/Spring-brightgreen" style="zoom:80%;" align="left"/>  SpringBoot启动流程
 
 SpringBoot启动分为了两个部分，对应于main方法中的两个部分：
 
@@ -582,7 +584,7 @@ public ConfigurableApplicationContext run(String... args) {
 
 
 
-#### <img src="https://img.shields.io/badge/Spring-brightgreen" style="zoom:80%;" />  为什么service层开启事务之后，不生效？
+#### <img src="https://img.shields.io/badge/Spring-brightgreen" style="zoom:80%;" align="left"/>  为什么service层开启事务之后，不生效？
 
 在使用Transactional注解之后，Spring就会通过动态代理的方式增强方法的功能，但是他在代理的过程中会发现不能对private的方法进行代理
 
@@ -591,13 +593,13 @@ public ConfigurableApplicationContext run(String... args) {
 
 > [5]. [为什么private方法加了@Transactional，事务也没有生效？](https://juejin.cn/post/7034042574146895902)
 
-####  <img src="https://img.shields.io/badge/Spring-brightgreen" style="zoom:80%;" />  Spring中的声明式事务是如何实现的
+####  <img src="https://img.shields.io/badge/Spring-brightgreen" style="zoom:80%;" align="left"/>  Spring中的声明式事务是如何实现的
 
 声明式事务，也就是通过`@Transactional`注解对service层的方法声明事务，是使用AOP的思路实现的，对原有方法的增强，在原有方法开始之前实现开启事务，在方法完成之后进行事务的提交或回滚。
 
 
 
-####  <img src="https://img.shields.io/badge/Spring-brightgreen" style="zoom:80%;" />  Spring请求处理
+####  <img src="https://img.shields.io/badge/Spring-brightgreen" style="zoom:80%;" align="left" />  Spring请求处理
 
 - 请求进入DispatcherServlet类，doService执行doDispatch
 - 通过reques对象获得handler对象，遍历handlerMapping找到可以处理当前request的handler
@@ -606,14 +608,14 @@ public ConfigurableApplicationContext run(String... args) {
 
 ### MyBatis
 
-####  <img src="https://img.shields.io/badge/MyBatis-brightgreen" style="zoom:80%;" />  MyBatis中的$和#有什么区别？
+####  <img src="https://img.shields.io/badge/MyBatis-brightgreen" style="zoom:80%;" align="left"/>  MyBatis中的$和#有什么区别？
 
 - 首先这两个都是MyBatis中进行拼接数据的符号
 
 - #使用了`PreparedStatement`进行了预编译，使用? 代替，按序给 sql 的? 号占位符设置参数值，可以有效的防止sql注入。
 - 但是$符号是直接使用字符串拼接，可能会导致sql注入的问题
 
-####  <img src="https://img.shields.io/badge/MyBatis-brightgreen" style="zoom:80%;" />  MyBatis缓存机制
+####  <img src="https://img.shields.io/badge/MyBatis-brightgreen" style="zoom:80%;" align="left"/>  MyBatis缓存机制
 
 - MyBatis中包含了查询缓存机制，用于提高查询效率， 包括了一级缓存和二级缓存
 - 默认情况下只有一级缓存，也就是sqlSession级别的缓存开启
@@ -635,7 +637,7 @@ public ConfigurableApplicationContext run(String... args) {
 
 ### MySQL
 
-####  <img src="https://img.shields.io/badge/MySQL-brightgreen" style="zoom:80%;" />  如何提高MySQL的查询效率
+####  <img src="https://img.shields.io/badge/MySQL-brightgreen" style="zoom:80%;" align="left"/>  如何提高MySQL的查询效率
 
 - 避免全表查询，对where、order by涉及的列建立索引
 - 避免where进行null判断，会导致引擎放弃索引进行全表扫描
@@ -647,24 +649,24 @@ public ConfigurableApplicationContext run(String... args) {
 
 ## Item
 
-####  <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" />  介绍一下你的项目
+####  <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" align="left"/>  介绍一下你的项目
 
 &emsp; 我的项目是一个在线音乐服务平台，只不过是在内网内部服务，这个项目包括音乐、用户认证、webSocket聊天模块，在音乐相关的模块中包含了歌曲上传、下载、歌单创建、收藏、点赞、评论等功能。
 
 
 
-####  <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" />  讲一下你项目的技术栈
+####  <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" align="left"/>  讲一下你项目的技术栈
 
 &emsp;我的项目是通过SpringBoot进行构建的，在数据端使用MySQL进行数据存取，另外在用户认证方面使用的JWToken的认证方式，采用这种方式有一个缺点是一旦Token生成他的过期时间就是一个确定的值，这会给我们的退出造成一定的困扰，所以使用Redis在服务器端保存Token及对应的用户信息，退出的时候直接从redis中删除。
 
 
 
-####  <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" /> 讲一下你项目的登录模块吧
+####  <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" align="left"/> 讲一下你项目的登录模块吧
 
 - 首先，登录的功能是通过JWT实现的，也就是Json Web Token，它本质上是一个Token，我们把前端的Username、password给到后端之后，服务器通过这个获取到用户信息、权限信息，生成token返回到前端，存储在local storage当中，之后每次访问都会携带。
 - 登录使用的拦截器的形式，定义一个HandlerInterceptor、通过webconfig配置到springboot中，同时我们还会验证当前请求的uri需要什么权限和当前用户权限本身作比较，如果符合就放行，不符合就不通过。
 
-####  <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" />  简单介绍一下webSocket协议
+####  <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" align="left"/>  简单介绍一下webSocket协议
 
 - 首先，websocket也是一种通信协议
 - 在了解websocket之前，我们先了解一下在websocket使用之前，我们是怎么从服务器端获取消息的
@@ -677,7 +679,7 @@ public ConfigurableApplicationContext run(String... args) {
 
 
 
-####  <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" />  简单介绍一下ThreadLocal的应用
+####  <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" align="left"/>  简单介绍一下ThreadLocal的应用
 
 &emsp;在我这个项目中，主要使用ThreadLocal做线程隔离，同时也能保证在本线程内的局部变量不再需要需要每次都要进行解析。
 
@@ -725,7 +727,7 @@ public ConfigurableApplicationContext run(String... args) {
 
 
 
-####  <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" />  权限认证是如何实现的
+####  <img src="https://img.shields.io/badge/Item-brightgreen" style="zoom:80%;" align="left"/>  权限认证是如何实现的
 
 - 主要通过RBAC的模型实现的权限认证，大概是这样
   - 我给每个用户都分配一个或多个角色
@@ -783,3 +785,4 @@ select * from table where id > 10 limit 10;
 [4]. [SpringBoot启动流程分析 1 - 5](https://www.cnblogs.com/hello-shf/p/10976646.html)
 
 [5]. [为什么private方法加了@Transactional，事务也没有生效？](https://juejin.cn/post/7034042574146895902)
+
